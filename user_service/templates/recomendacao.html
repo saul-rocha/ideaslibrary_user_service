@@ -1,0 +1,88 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+<title>Recomendação</title>
+<link rel="stylesheet" href="{% static 'css/recomendacao.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+
+<div class="recomendacao">
+
+    
+    <div class="livro">
+
+        <div class="imagem">
+            <img src="{{post.image.url}}" alt="{{post.nm_livro}}">
+        </div>
+
+        <div class="infos_livro">
+
+            <h2>{{ post.nm_livro }}</h2>
+
+            <div class="avaliacao">
+                <a class="" href="/avaliacao/?post_id={{post.id}}">
+                    <img src="{% static 'images/gostar.png' %}" alt="">
+                    <div class="pessoas">
+                        {% if post.avaliation == 0 %}
+                        <p>Sem curtidas ainda</p>
+                        {% elif post.avaliation == 1%}
+                        <p>Curtida por {{ post.avaliation }} pessoa</p>
+                        {% else %}
+                        <p>Curtida por {{ post.avaliation }} pessoas</p>
+                        {% endif %}
+                    </div>
+                </a>
+            </div>
+
+            <div class="link">
+                <a href="{{ post.link }}" target="_blank" rel="noopener noreferrer" class="amarelo">
+                    <img src="https://img.icons8.com/ios/50/external-link-squared.png" alt="external-link-squared" />
+                    <h4>Link para o livro</h4>
+                </a>
+            </div>
+
+            <!-- Se o autor da recomendação for o proprio usuário -->
+            {% if ehDoUser %}
+
+            <div class="link">
+                <a href="" class="azul">
+                    <!-- <img src="https://img.icons8.com/ios/50/external-link-squared.png" alt="external-link-squared"/> -->
+                    <img src="https://img.icons8.com/ios/50/edit--v1.png" alt="edit--v1" />
+                    <h4>Editar</h4>
+                </a>
+            </div>
+
+            <div class="link">
+                <a href="" class="vermelho">
+                    <img src="https://img.icons8.com/ios/50/delete-sign--v1.png" alt="delete-sign--v1" />
+                    <h4>Apagar</h4>
+                </a>
+            </div>
+
+            {% endif %}
+
+            <div class="data">
+                <p>Review feita em: <b>{{ post.created_at }}</b></p>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="review">
+        <div class="titulo">
+            <h1>Review</h1>
+        </div>
+        <div class="texto">
+            <p>{{ post.review }}</p>
+        </div>
+    </div>
+
+
+
+</div>
+{% endblock %}
