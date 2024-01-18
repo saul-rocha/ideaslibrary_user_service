@@ -21,7 +21,7 @@ def recomendar(request):
         review = request.POST.get('review')
         link = request.POST.get('link')
 
-        url_da_api = "http://3.8.2.21/posts/"
+        url_da_api = "http://3.8.2.21:8000/posts/"
         dados = {
             "username": user,
             "nm_livro": livro,
