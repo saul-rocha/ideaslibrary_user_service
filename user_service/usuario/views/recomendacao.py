@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='login')
 def recomendacao(request, post_id):
-    url_da_api = f"http://18.169.166.253:8000/posts/{post_id}/"
+    url_da_api = f"http://3.8.2.21:8000/posts/{post_id}/"
     resposta = requests.get(url_da_api)
 
     if resposta.status_code == 200:
@@ -20,7 +20,7 @@ def recomendacao(request, post_id):
 
 @login_required(login_url='login')
 def recomendacoes(request):
-    url_da_api = "http://18.169.166.253:8000/posts/"
+    url_da_api = "http://3.8.2.21:8000/posts/"
 
     resposta = requests.get(url_da_api)
 
