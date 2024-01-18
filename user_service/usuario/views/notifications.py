@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='login')
 def notifications(request):
-    url_da_api = "http://127.0.0.1:8002/notifications/"
+    url_da_api = "http://43.202.46.173:8000/notifications/"
     # Ou a forma como você obtém o nome do usuário logado
     username = request.user.username
 
