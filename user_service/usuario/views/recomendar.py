@@ -21,7 +21,7 @@ def recomendar(request):
         review = request.POST.get('review')
         link = request.POST.get('link')
 
-        url_da_api = "http://127.0.0.1:8001/posts/"
+        url_da_api = "http://18.169.166.253:8000/posts/"
         dados = {
             "username": user,
             "nm_livro": livro,
@@ -40,7 +40,7 @@ def recomendar(request):
             noti_data = {"username_ator": user,
                          "receiver": follower, "message": message}
             notifica = requests.post(
-                "http://127.0.0.1:8002/notifications/", data=noti_data)
+                "http://43.202.46.173:8000/notifications/", data=noti_data)
             if notifica.status_code != 201:
                 print("Erro ao notificar seguidor.")
 
